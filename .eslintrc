@@ -6,7 +6,7 @@
       "plugin:@typescript-eslint/recommended"
   ],
   "parserOptions": {
-      "project": "tsconfig.json",
+      "project": "Front/tsconfig.json",
       "sourceType": "module"
   },
   "plugins": [

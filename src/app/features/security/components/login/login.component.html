@@ -1,0 +1,20 @@
+<div class="border rounded-lg border-gray-400 p-10 lg:w-1/4 md:w-8/12 sm:w-3/4 xs:w-full">
+    <p class="text-xl font-semibold" i18n="@@connexionTitle">Connexion</p>
+    <form [formGroup]="form">
+        <div class="p-inputgroup my-3">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" pInputText placeholder="Email" formControlName="email">         
+        </div>
+        <div class="p-inputgroup my-3">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input type="password" pPassword [feedback]="false" placeholder="Password" formControlName="password"/>
+        </div>
+        <div class="flex items-center">
+            <p-button label="Login" (onClick)="signIn()"></p-button>
+            <a class="ml-3" i18n="@@signUp" [routerLink]="['/security', 'register']">Sign up</a>
+        </div>
+        
+    </form>
+</div> 
+
+<p-toast position="top-right"></p-toast>

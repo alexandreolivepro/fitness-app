@@ -1,5 +1,5 @@
-<app-sidebar *ngIf="userService.isConnected | async"></app-sidebar>
+<app-sidebar *ngIf="userService.user | async"></app-sidebar>
 <section class="container mx-auto">
-    <app-header *ngIf="userService.isConnected | async"></app-header>
+    <app-header *ngIf="userService.user | async"></app-header>
     <router-outlet></router-outlet>
 </section>
