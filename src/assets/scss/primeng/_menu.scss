@@ -1,0 +1,9 @@
+p-menu {
+    .p-menu {
+        width: 100%;
+        @apply border-t border-gray-200;
+        border-bottom: initial;
+        border-left: initial;
+        border-right: initial;
+    }
+}

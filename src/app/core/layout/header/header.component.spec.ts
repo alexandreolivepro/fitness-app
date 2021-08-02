@@ -1,25 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
+import { LogoutComponent } from '@Features/security/components/logout/logout.component';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
+  let spectator: Spectator<HeaderComponent>;
+  const createComponent = createComponentFactory({
+    component: HeaderComponent,
+    declarations: [
+      MockComponent(LogoutComponent),
+    ],
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should see the logout button', () => {
+    expect(spectator.query('app-logout')).toBeDefined();
   });
 });

@@ -16,7 +16,7 @@ export class SecurityService {
     private http: HttpClient,
     private localStorageService: LocalStorageService,
     private userService: UserService,
-    ) {
+  ) {
   }
 
   /*

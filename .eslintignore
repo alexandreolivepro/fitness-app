@@ -7,4 +7,3 @@ jest.e2e.config.js
 jest.spec.config.js
 coverage
 **/*.e2e.ts
-**/*.spec.ts

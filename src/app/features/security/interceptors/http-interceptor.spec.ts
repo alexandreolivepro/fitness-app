@@ -1,7 +1,9 @@
-import { HttpInterceptor } from './http-interceptor';
+import { LocalStorageService } from '@Services/local-storage/local-storage.service';
+import { SecurityService } from '../services/security.service';
+import { InterceptorOutGoing } from './http-interceptor';
 
-describe('HttpInterceptor', () => {
+describe('InterceptorOutGoing', () => {
   it('should create an instance', () => {
-    expect(new HttpInterceptor()).toBeTruthy();
+    expect(new InterceptorOutGoing({} as LocalStorageService, {} as SecurityService)).toBeTruthy();
   });
 });

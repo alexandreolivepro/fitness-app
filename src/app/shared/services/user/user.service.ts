@@ -16,7 +16,6 @@ export class UserService extends ApiService<FitUser> {
 
   constructor(
     protected http: HttpClient,
-    private router: Router,
   ) {
     super(http);
     this.basePath = '/api/user/v1';

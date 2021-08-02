@@ -1,25 +1,37 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
+import { MockComponents, MockDirectives } from 'ng-mocks';
+import { Button } from 'primeng/button';
+import { InputText } from 'primeng/inputtext';
+import { Password } from 'primeng/password';
+import { Toast } from 'primeng/toast';
 
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
-  let component: RegisterComponent;
-  let fixture: ComponentFixture<RegisterComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ]
-    })
-    .compileComponents();
+  let spectator: Spectator<RegisterComponent>;
+  const createComponent = createComponentFactory({
+    component: RegisterComponent,
+    declarations: [
+      RegisterComponent,
+      MockComponents(Button, Toast),
+      MockDirectives(Password, InputText),
+    ],
+    imports: [
+      HttpClientTestingModule,
+      RouterTestingModule,
+      ReactiveFormsModule,
+    ],
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });

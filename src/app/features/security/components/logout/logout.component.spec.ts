@@ -1,4 +1,8 @@
+import { APP_BASE_HREF } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 import { LogoutComponent } from './logout.component';
 
@@ -8,9 +12,15 @@ describe('LogoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LogoutComponent ]
+      declarations: [LogoutComponent],
+      imports: [
+        ButtonModule,
+        RouterModule.forRoot([]),
+        HttpClientModule,
+      ],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

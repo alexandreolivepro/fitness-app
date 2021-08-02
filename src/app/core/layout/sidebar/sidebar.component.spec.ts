@@ -1,25 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
+import { MockComponent } from 'ng-mocks';
+import { Menu } from 'primeng/menu';
 
 import { SidebarComponent } from './sidebar.component';
 
 describe('SidebarComponent', () => {
-  let component: SidebarComponent;
-  let fixture: ComponentFixture<SidebarComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SidebarComponent ]
-    })
-    .compileComponents();
+  let spectator: Spectator<SidebarComponent>;
+  const createComponent = createComponentFactory({
+    component: SidebarComponent,
+    declarations: [
+      MockComponent(Menu),
+    ],
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidebarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should see the logo', () => {
+    expect(spectator.query('.app-logo')).not.toBeNull();
+  });
+
+  it('should see the menu', () => {
+    expect(spectator.query('p-menu')).not.toBeNull();
   });
 });

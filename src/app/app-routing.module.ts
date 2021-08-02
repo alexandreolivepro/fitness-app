@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () => import('./features/dashboard/dashboard.module').then((m) => m.DashboardModule),
     canActivate: [IsSignedInGuard],
   },
+  {
+    path: 'workout',
+    loadChildren: () => import('./features/workout/workout.module').then((m) => m.WorkoutModule),
+    canActivate: [IsSignedInGuard],
+  },
 ];
 
 @NgModule({
